@@ -3,4 +3,5 @@
     <string name="category">Категория</string>
     <string name="limited_offer">Предложение ограничено</string>
     <string name="label_best_price">Лучшая цена</string>
+    <string name="search">Поиск</string>
 </resources>

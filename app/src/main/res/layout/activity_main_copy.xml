@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="#53c440"
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="60dp"
+                android:text="Поиск товаров"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_collapseMode="parallax" />
+
+            <TextView
+                android:id="@+id/tvSearch"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="130dp"
+                android:background="@color/white"
+                android:drawableRight="@android:drawable/ic_search_category_default"
+                android:gravity="center_vertical"
+                android:hint="Поиск"
+                android:paddingStart="@dimen/small_margin"
+                android:textSize="24sp"
+                app:layout_collapseMode="pin" />
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="350dp"
+                android:layout_marginTop="130dp"
+                app:layout_collapseMode="parallax"
+                app:srcCompat="@drawable/barcode_2d" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gdStart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="403dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/category_item" />
+
+            <TextView
+                android:id="@+id/tvLabelLimitedOffer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/limited_offer"
+                android:textSize="24dp"
+                app:layout_constraintStart_toStartOf="@id/gdStart"
+                app:layout_constraintTop_toBottomOf="@+id/rvCategory" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLimitedOffer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelLimitedOffer"
+                tools:listitem="@layout/limited_offer_item" />
+
+            <TextView
+                android:id="@+id/tvLabelBestPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/label_best_price"
+                android:textSize="24dp"
+                app:layout_constraintStart_toStartOf="@id/gdStart"
+                app:layout_constraintTop_toBottomOf="@+id/rvLimitedOffer" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBestPrice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelBestPrice"
+                tools:listitem="@layout/limited_offer_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

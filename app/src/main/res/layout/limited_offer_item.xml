@@ -3,41 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/small_margin"
+    android:layout_marginBottom="@dimen/small_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="140dp"
-        android:layout_height="200dp"
-        android:layout_margin="@dimen/small_margin">
+        android:layout_width="@dimen/best_price_card_width"
+        android:layout_height="@dimen/best_price_card_height">
 
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:text="Ламинатv wdfwc wv w df sd v sv  s d s v sv  sdddddddddddsfsdfsdfsdfsdfsd"
-            android:textSize="8sp"
+            android:text="@string/description"
+            android:textColor="@color/black"
+            android:textSize="@dimen/micro_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/ivLimitedOffer"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="@dimen/card_view_size"
+            android:layout_height="@dimen/card_view_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/image_item" />
 
         <TextView
             android:id="@+id/tvPriceInt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/text_margin"
             android:text="930,"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/tvPriceCoins"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -49,8 +53,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="60 р/коп"
-            android:textSize="16sp"
+            android:textSize="@dimen/micro_text_size_2"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintBaseline_toBaselineOf="@+id/tvPriceInt"
             app:layout_constraintStart_toEndOf="@+id/tvPriceInt" />
     </androidx.constraintlayout.widget.ConstraintLayout>

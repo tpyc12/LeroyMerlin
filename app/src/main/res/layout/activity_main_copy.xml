@@ -1,135 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/zero"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/toolbarLayout"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:background="#53c440"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:contentScrim="@color/design_default_color_primary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginTop="60dp"
-                android:text="Поиск товаров"
-                android:textColor="@color/white"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                app:layout_collapseMode="parallax" />
-
-            <TextView
-                android:id="@+id/tvSearch"
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginTop="130dp"
-                android:background="@color/white"
-                android:drawableRight="@android:drawable/ic_search_category_default"
-                android:gravity="center_vertical"
-                android:hint="@string/search"
-                android:paddingStart="@dimen/small_margin"
-                android:textSize="24sp"
-                app:layout_collapseMode="pin" />
-
-            <ImageView
-                android:id="@+id/ivSearch"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="350dp"
-                android:layout_marginTop="130dp"
-                app:layout_collapseMode="parallax"
-                app:srcCompat="@drawable/barcode_2d" />
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/collapsing_height"
+                android:background="@color/leroy_color"
+                app:contentScrim="@color/white"
                 app:layout_collapseMode="pin"
-                />
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tvLabelSearchItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:text="@string/search_items"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/search_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/tvSearch"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gdStart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="@dimen/small_margin" />
+                    <ImageView
+                        android:id="@+id/ivSearch"
+                        android:layout_width="@dimen/iv_search_width"
+                        android:layout_height="@dimen/iv_search_height"
+                        android:contentDescription="@string/bar_code"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tvSearch"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelSearchItems"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/barcode_2d" />
+
+                    <EditText
+                        android:id="@+id/tvSearch"
+                        android:layout_width="@dimen/tv_search_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:background="@drawable/rounded_edit_text"
+                        android:gravity="center_vertical"
+                        android:hint="@string/search"
+                        android:paddingStart="@dimen/small_margin"
+                        android:textSize="@dimen/text_size"
+                        app:drawableRightCompat="@android:drawable/ic_search_category_default"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/ivSearch"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelSearchItems"
+                        tools:ignore="RtlSymmetry"
+                        android:inputType="textAutoComplete"
+                        android:autofillHints="@string/search" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/toolbar_height"
+                    app:layout_collapseMode="pin"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <EditText
+                        android:id="@+id/tvSearchToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:hint="@string/search"
+                        android:textSize="@dimen/text_size"
+                        android:visibility="gone"
+                        android:autofillHints="@string/search"
+                        android:inputType="textAutoComplete" />
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCategory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/big_margin"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/gdStart"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/category_item" />
 
             <TextView
                 android:id="@+id/tvLabelLimitedOffer"
+                style="@style/MainText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/big_margin"
                 android:text="@string/limited_offer"
-                android:textSize="24dp"
-                app:layout_constraintStart_toStartOf="@id/gdStart"
-                app:layout_constraintTop_toBottomOf="@+id/rvCategory" />
+                android:textColor="@color/black" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvLimitedOffer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/big_margin"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/gdStart"
-                app:layout_constraintTop_toBottomOf="@+id/tvLabelLimitedOffer"
                 tools:listitem="@layout/limited_offer_item" />
 
             <TextView
                 android:id="@+id/tvLabelBestPrice"
+                style="@style/MainText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/label_best_price"
-                android:textSize="24dp"
-                app:layout_constraintStart_toStartOf="@id/gdStart"
-                app:layout_constraintTop_toBottomOf="@+id/rvLimitedOffer" />
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:text="@string/label_best_price" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvBestPrice"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/big_margin"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/gdStart"
-                app:layout_constraintTop_toBottomOf="@+id/tvLabelBestPrice"
                 tools:listitem="@layout/limited_offer_item" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="@dimen/zero"
+        android:layout_height="wrap_content"
+        app:itemRippleColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,14 @@
     <string name="category">Категория</string>
     <string name="limited_offer">Предложение ограничено</string>
     <string name="label_best_price">Лучшая цена</string>
+    <string name="search">Поиск</string>
+    <string name="text_label_1">Главная</string>
+    <string name="text_label_2">Мой список</string>
+    <string name="text_label_3">Магазины</string>
+    <string name="text_label_4">Профиль</string>
+    <string name="text_label_5">Корзина</string>
+    <string name="search_items">Поиск товаров</string>
+    <string name="bar_code">Штрих-код</string>
+    <string name="description">Ламинатv wdfwc wv w df sd v sv s d s v sv sdddddddddddsfsdfsdfsdfsdfsd</string>
+    <string name="image_item">image item</string>
 </resources>
